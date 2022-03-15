@@ -1,8 +1,8 @@
-import getUser from '../models/Login';
+import userLogin from '../models/Login';
 
-const userLogin = async (username: string, password: string) => {
-  const user = await getUser(username, password);
+const login = async (username: string, password: string) => {
+  const user = await userLogin(username, password);
   return user;
 };
 
-export default userLogin;
+export default login;

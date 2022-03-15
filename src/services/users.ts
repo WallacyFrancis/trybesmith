@@ -1,9 +1,9 @@
-import create from '../models/User';
+import createUser from '../models/User';
 import { IUser, User } from '../interfaces/users';
 
-const userCreate = async (user: IUser): Promise<User> => {
-  const createdUser = await create(user);
+const create = async (user: IUser): Promise<User> => {
+  const createdUser = await createUser(user);
   return createdUser;
 };
 
-export default userCreate;
+export default create;
