@@ -5,6 +5,11 @@ export interface IUser {
   password: string,
 }
 
-export interface User extends IUser{
+export interface User extends IUser {
   id: number,
+}
+
+export interface Login extends User {
+  username: string,
+  password: string,
 }

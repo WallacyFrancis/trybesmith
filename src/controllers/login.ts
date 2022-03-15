@@ -1,18 +1,18 @@
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import userCreate from '../services/users';
-import { User } from '../interfaces/users';
+import userLogin from '../services/login';
 
 dotenv.config();
 
-const create = async (req: Request, res: Response) => {
-  const user: User = await userCreate(req.body);
+const login = async (req: Request, res: Response) => {
+  const { username, password } = req.body;
+  const [user] = await userLogin(username, password);
   const token = jwt.sign(
     { data: { id: user.id, username: user.username } },
     (process.env.SECRET || '1234'),
   );
-  res.status(201).json({ token });
+  res.status(200).json({ token });
 };
 
-export default create;
+export default login;
