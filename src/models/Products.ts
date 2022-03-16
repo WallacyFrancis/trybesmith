@@ -20,6 +20,5 @@ export const create = async (products: IProducts): Promise<Products> => {
 export const getAll = async () => {
   const query = 'SELECT * FROM Trybesmith.Products';
   const [result] = await connection.execute<ResultSetHeader>(query);
-  console.log(result); // remover
   return result;
 };
