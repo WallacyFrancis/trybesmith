@@ -9,3 +9,8 @@ export const getById = async (id: number) => {
   const order = await OrderModel.getById(id);
   return order;
 };
+
+export const getAll = async () => {
+  const order = await OrderModel.getAll();
+  return order;
+};

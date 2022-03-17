@@ -7,9 +7,10 @@ export const create = async (userId: number, products: number[]) => {
     VALUES (?)`;
   const [order] = await connection.execute<ResultSetHeader>(query1, [userId]);
   const query2 = 'UPDATE Trybesmith.Products SET orderId = ? WHERE id = ?';
-  products.forEach(async (product) => {
+  const result = products.map(async (product) => {
     await connection.execute<ResultSetHeader>(query2, [order.insertId, product]);
   });
+  await Promise.all(result);
   return {
     order: { userId, products },
   };
@@ -24,4 +25,22 @@ export const getById = async (id: number) => {
   const result2: number[] = [];
   products.forEach((product) => result2.push(product.id));
   return { ...result1, products: result2 };
+};
+
+const getProductsId = async (id: number) => {
+  const query = 'SELECT id FROM Trybesmith.Products WHERE orderId = ?';
+  const [result] = await connection.execute<RowDataPacket[]>(query, [id]);
+  return result.map((products) => products.id);
+};
+
+export const getAll = async () => {
+  const query1 = 'SELECT * FROM Trybesmith.Orders';
+  const [orders] = await connection.execute<RowDataPacket[]>(query1);
+  const result = orders.map(async (order) => ({
+    id: order.id,
+    userId: order.userId,
+    products: await getProductsId(order.id),
+  }));
+  const promise = await Promise.all(result);
+  return promise;
 };

@@ -6,6 +6,12 @@ import * as ValidateOrder from '../middlewares/orderValidation';
 const router = Router();
 
 router.get(
+  '/',
+  Token.validate,
+  OrderControler.getAll,
+);
+
+router.get(
   '/:id',
   Token.validate,
   ValidateOrder.validateOrder,
