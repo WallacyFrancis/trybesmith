@@ -1,19 +1,19 @@
 import { Router } from 'express';
 import * as ProductsController from '../controllers/products';
 import * as ValidateProduct from '../middlewares/productsValidation';
-import tokenValidation from '../middlewares/tokenValidation';
+import * as Token from '../middlewares/tokenValidation';
 
 const router = Router();
 
 router.get(
   '/',
-  tokenValidation,
+  Token.validate,
   ProductsController.getAll,
 );
 
 router.post(
   '/',
-  tokenValidation,
+  Token.validate,
   ValidateProduct.validateName,
   ValidateProduct.validateAmount,
   ProductsController.create,

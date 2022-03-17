@@ -1,15 +1,22 @@
 import { Router } from 'express';
-import OrderControler from '../controllers/order';
-import tokenValidation from '../middlewares/tokenValidation';
-import ValidateOrder from '../middlewares/orderValidation';
+import * as OrderControler from '../controllers/order';
+import * as Token from '../middlewares/tokenValidation';
+import * as ValidateOrder from '../middlewares/orderValidation';
 
 const router = Router();
 
+router.get(
+  '/:id',
+  Token.validate,
+  ValidateOrder.validateOrder,
+  OrderControler.getById,
+);
+
 router.post(
   '/',
-  tokenValidation,
-  ValidateOrder,
-  OrderControler,
+  Token.validate,
+  ValidateOrder.validateProducts,
+  OrderControler.create,
 );
 
 export default router;

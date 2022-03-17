@@ -1,21 +1,17 @@
 import { Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-import OrderService from '../services/order';
+import * as OrderService from '../services/order';
+import * as Token from '../middlewares/tokenValidation';
 
-dotenv.config();
-
-const decodeToken = (token: string) => {
-  const result: any = jwt.verify(token, (process.env.SECRET || '1234'));
-  return result.data;
-};
-
-const create = async (req: Request, res: Response) => {
+export const create = async (req: Request, res: Response) => {
   const { products } = req.body;
   const token = req.headers.authorization;
-  const objToken = decodeToken((token || '1'));
-  const result = await OrderService(objToken.id, products);
+  const objToken = Token.decode((token || '1'));
+  const result = await OrderService.create(objToken.id, products);
   res.status(201).json(result);
 };
 
-export default create;
+export const getById = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const order = await OrderService.getById(Number(id));
+  res.status(200).json(order);
+};

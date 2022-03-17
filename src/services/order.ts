@@ -1,8 +1,11 @@
-import OrderModel from '../models/Order';
+import * as OrderModel from '../models/Order';
 
-const create = async (userId: number, products: number[]) => {
-  const result = await OrderModel(userId, products);
-  return result;
+export const create = async (userId: number, products: number[]) => {
+  const order = await OrderModel.create(userId, products);
+  return order;
 };
 
-export default create;
+export const getById = async (id: number) => {
+  const order = await OrderModel.getById(id);
+  return order;
+};

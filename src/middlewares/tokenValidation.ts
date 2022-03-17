@@ -9,7 +9,7 @@ const messageErrors = {
   tokenInvalid: { error: 'Invalid token' },
 };
 
-const validateToken = (req: Request, res: Response, next: NextFunction) => {
+export const validate = (req: Request, res: Response, next: NextFunction) => {
   try {
     const token = req.headers.authorization;
     const { tokenNotFound } = messageErrors;
@@ -22,4 +22,7 @@ const validateToken = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export default validateToken;
+export const decode = (token: string) => {
+  const result: any = jwt.verify(token, (process.env.SECRET || '1234'));
+  return result.data;
+};
