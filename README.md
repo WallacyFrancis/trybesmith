@@ -14,6 +14,7 @@ Este pronjeto possui a finalidade de aplicar na prática conceitos de Typescript
 - [Sumário](#sumário)
 - [Habilidades](#habilidades)
 - [Requisitos do projeto](#requisitos-do-projeto)
+- [Resultado Final].(#resultado-final)
 - [Avisos finais](#avisos-finais)
 
 ---
@@ -56,6 +57,12 @@ Este projeto foi desenvolvido com as capacidades dê:
 
 
 ### 7 - Crie um endpoint para listar todos os pedidos
+
+---
+
+# Resultado Final
+
+<img src="/src/resultado-avaliacao.png" alt="Resultado" style="height: 100px; width:100px;"/>
 
 ---
 
