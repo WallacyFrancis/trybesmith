@@ -62,7 +62,7 @@ Este projeto foi desenvolvido com as capacidades dê:
 
 # Resultado Final
 
-<img src="/src/resultado-avaliacao.png" alt="Resultado" style="height: 100px; width:100px;"/>
+<img src="/src/resultado-avaliacao.png" alt="Resultado" style="height: 60%;"/>
 
 ---
 
