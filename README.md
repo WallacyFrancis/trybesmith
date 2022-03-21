@@ -13,8 +13,7 @@ Este pronjeto possui a finalidade de aplicar na prática conceitos de Typescript
 - [Boas vindas ao repositório do projeto Trybesmith!](#boas-vindas-ao-repositório-do-projeto-trybesmith)
 - [Sumário](#sumário)
 - [Habilidades](#habilidades)
-- [[Requisitos do projeto](#requisitos-do-projeto)]
-- [Resultado Final].(#resultado-final)
+- [Requisitos do projeto](#requisitos-do-projeto)
 - [Avisos finais](#avisos-finais)
 
 ---
