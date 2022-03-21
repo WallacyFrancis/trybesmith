@@ -26,7 +26,7 @@ Este projeto foi desenvolvido com as capacidades dê:
 
 - Construir uma _API Node Express_ utilizando o _Typescript_.
 
-- Usar validações de _JsonWebToken_ para validações de rotas.
+- Usar validações de _JsonWebToken_ para autenticação de rotas.
 
 - Comunicação com banco de dados _MySQL_.
 
